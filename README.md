@@ -27,3 +27,24 @@ However I have never worked in a language with proper interface objects so if I 
 **Requirements**
 - a task has an instruction(the content), a due_date and a completed status
 - we need to be able to create a todo list
+
+## Install
+
+#### Clone the app
+
+```
+git clone git@github.com:CrowdHailer/just-job.git
+cd Maenporth
+```
+
+#### Install Ruby Gem Dependencies
+
+```
+bundle install
+```
+
+#### Run tests
+
+```
+bundle exec rake test
+```
