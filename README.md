@@ -1,7 +1,7 @@
 Just Job
 ========
 
-#### Just Job is a todo list built from the ground up using the principles of [Domain Driven Design(DDD)]() that I have been recently exploring.
+#### Just Job is a todo list built from the ground up using the principles of [Domain Driven Design(DDD)](http://insights.workshop14.io/2015/07/14/domain-driven-design-introduction.html) that I have been recently exploring.
 
 ## Why
 Domain Driven Design is often seen as only relevant in more complicated application, which a todo list is definetly not.
