@@ -29,7 +29,7 @@ However I have never worked in a language with proper interface objects so if I 
 - we need to be able to create a todo list
 - a todo list has a name
 
-**Step 1: Failing interactor test**
+**1: Failing interactor test**
 
 ```rb
 class CreateTodoListTest < JustJobTest
@@ -44,10 +44,10 @@ end
 The interactor(`CreateTodoList`) takes a generic request object with all the data needed to complete the interaction.
 It returns a generic response object(instance of `CreateTodoList`) with some result, here the result is a `TodoList`
 
-**Step 2: create a TodoList object**
+**2: create a TodoList object**  
 To make the above test pass we have to create minimal `CreateTodoList` and `TodoList` classes
 
-**Step 3: complete requirements**
+**3: complete requirements**  
 Repeat adding interactor tests and writing the code to fix them. See the commit log for details
 
 At this point our task item is just able to hold the `todo_list` as a string and we have not needed to implement any functionality on the todo_list
@@ -56,19 +56,25 @@ At this point our task item is just able to hold the `todo_list` as a string and
 
 > It should be possible to complete edit or delete a task
 
-**Requirements**
+**Requirements**  
 - edit instructions and/or due_date
 - complete one or more tasks
 - delete a task
 
-**Step 1: Failing interactor test**
+**1: Failing interactor test**  
 Write a test for the edit_task interactor
 
-**Step 2: create an EditTask interactor**
+**2: create an EditTask interactor**  
 Create an edit task interactor and update the task entity
 
-**Step 3: Implement complete_tasks**
+**3: Implement complete_tasks**  
 Write a test for the complete_tasks interactor and create interactor
+
+**4: Implement list tasks**  
+We cannot confirm that a task is deleted if we are not able to list the tasks.
+So we will add the requirement to be able to list tasks for the next step.
+
+At this point our app is able to create, edit and complete tasks but not yet delete or list tasks 
 
 ## Install
 
