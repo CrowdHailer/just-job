@@ -47,6 +47,8 @@ It returns a generic response object(instance of `CreateTodoList`) with some res
 **Step 2: create a TodoList object**
 To make the above test pass we have to create minimal `CreateTodoList` and `TodoList` classes
 
+**Step 3: complete requirements**
+Repeat adding interactor tests and writing the code to fix them. See the commit log for details
 
 ## Install
 
