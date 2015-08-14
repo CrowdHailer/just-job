@@ -88,6 +88,11 @@ At this point our app is able to create, edit and complete tasks but not yet del
 Write a failing test for the `GetTodoList` interactor.
 The TodoLists will be identified by their name so that is what we use to fetch the todolist
 
+2. Create Tasks Repository
+At this point we need to have a record of all the tasks in our system.
+For this we will create a [repository](http://insights.workshop14.io/2015/08/09/untangle-your-domain-model-from-the-database.html), at this stage it only needs to be in memory
+A repository always models a collection of entities therefore we do not need to have a separate respositories directory.
+
 ## Install
 
 #### Clone the app
