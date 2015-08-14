@@ -29,20 +29,24 @@ However I have never worked in a language with proper interface objects so if I 
 - we need to be able to create a todo list
 - a todo list has a name
 
-**Step 1: Failing interaction test**
+**Step 1: Failing interactor test**
 
 ```rb
 class CreateTodoListTest < JustJobTest
   def test_can_create_a_todo_list
-    request = OpenStruct.new :instruction => "my list"
+    request = OpenStruct.new :name => "my list"
     response = CreateTodoList.new request
     assert_kind_of TodoList, response.result
   end
 end
 ```
 
-The interaction(`CreateTodoList`) takes a generic request object with all the data needed to complete the interaction.
+The interactor(`CreateTodoList`) takes a generic request object with all the data needed to complete the interaction.
 It returns a generic response object(instance of `CreateTodoList`) with some result, here the result is a `TodoList`
+
+**Step 2: create a TodoList object**
+To make the above test pass we have to create minimal `CreateTodoList` and `TodoList` classes
+
 
 ## Install
 
