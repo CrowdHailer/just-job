@@ -18,3 +18,12 @@ Our data persistence mechanism is just a detail and descisions about it will be 
 The delivery mechanism is also a detail and we will not allow it to pollute the domain model.
 Instead of dependency injection I want to use interface objects as described in "Architecture: the lost years".
 However I have never worked in a language with proper interface objects so if I get it all wrong please let me know.
+
+## Development
+### Creating a new Task
+
+> It should be possible to add a new task to a todo list
+
+**Requirements**
+- a task has an instruction(the content), a due_date and a completed status
+- we need to be able to create a todo list
