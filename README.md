@@ -96,6 +96,8 @@ A repository always models a collection of entities therefore we do not need to 
 3. Failing remove task interactor test
 we should be able to remove a task from the repository
 
+4. implement repository remove methods
+
 ## Install
 
 #### Clone the app

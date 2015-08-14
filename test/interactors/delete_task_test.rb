@@ -10,7 +10,8 @@ class DeleteTaskTest < JustJobTest
     response = CreateTask.new request
     task = response.result
     Task::Repository.add task
-    DeleteTask.new task
+    request =  OpenStruct.new :task => task
+    DeleteTask.new request
     assert Task::Repository.empty?
   end
 

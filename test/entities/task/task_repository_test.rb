@@ -14,6 +14,13 @@ class Task
       refute Repository.empty?
     end
 
+    def test_can_remove_a_task
+      task = Task.new "my list", "take the high road"
+      Repository.add task
+      Repository.remove task
+      assert Repository.empty?
+    end
+
     def test_can_clear_repository
       task = Task.new "my list", "take the high road"
       Repository.add task

@@ -13,6 +13,10 @@ class Task
       contents << task
     end
 
+    def self.remove(task)
+      contents.delete_if { |t| t == task }
+    end
+
     def self.clear
       contents.clear
     end
