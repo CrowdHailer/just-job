@@ -1,7 +1,7 @@
 require_relative '../test_config'
 require 'ostruct'
 
-# require_relative '../../domain/interactors/create_task'
+require_relative '../../domain/interactors/create_task'
 
 class CreateTaskTest < JustJobTest
   def test_can_create_a_task
