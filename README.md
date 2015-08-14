@@ -74,7 +74,19 @@ Write a test for the complete_tasks interactor and create interactor
 We cannot confirm that a task is deleted if we are not able to list the tasks.
 So we will add the requirement to be able to list tasks for the next step.
 
-At this point our app is able to create, edit and complete tasks but not yet delete or list tasks 
+At this point our app is able to create, edit and complete tasks but not yet delete or list tasks
+
+## Fetching a todo list
+> it should be able to view all the tasks in a todo list
+
+###### Requirements
+- fetch a todo list by its name
+- check a task has been deleted
+
+###### Steps
+1. Failing interactor test  
+Write a failing test for the `GetTodoList` interactor.
+The TodoLists will be identified by their name so that is what we use to fetch the todolist
 
 ## Install
 
