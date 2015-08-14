@@ -67,6 +67,9 @@ Write a test for the edit_task interactor
 **Step 2: create an EditTask interactor**
 Create an edit task interactor and update the task entity
 
+**Step 3: Implement complete_tasks**
+Write a test for the complete_tasks interactor and create interactor
+
 ## Install
 
 #### Clone the app
