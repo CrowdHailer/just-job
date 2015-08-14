@@ -10,4 +10,10 @@ class CreateTaskTest < JustJobTest
     assert_kind_of Task, response.result
   end
 
+  def test_created_task_is_added_to_repository
+    request = OpenStruct.new :instruction => "Do something", :todo_list => "my list"
+    response = CreateTask.new request
+    refute Task::Repository.empty?
+  end
+
 end

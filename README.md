@@ -98,6 +98,53 @@ we should be able to remove a task from the repository
 
 4. implement repository remove methods
 
+5. change create task to add to repository
+
+## Booting the application
+We now have six usecase that our application supports.
+- create task
+- edit task
+- complete tasks
+- delete tasks
+- get todo list
+- create todo list
+The last one is a bit odd at this point because tasks don't validate that a list exits when they are created.
+The fact that most of these usecase only work for a happy path does not prevent us from having enough functionality for a working app.
+
+To make this app bootable all we need to do is require the domain.
+
+1. Make a `boot.rb`
+
+Usage to start a shell in the application execute
+```sh
+$ irb -r ./boot.rb
+```
+
+You can then use each interactor to control the application
+```rb
+request = OpenStruct.new :instruction => 'shout huzzar!', :todo_list => 'my list'
+
+response = CreateTask.new request
+
+request = OpenStruct.new :name => "My list"
+
+response = GetTodoList.new request
+
+task = response.result.first
+
+puts task.instruction
+# => "shout huzzar!"
+
+puts task.completed?
+#=> false
+
+CompleteTasks.new(OpenStruct.new(:tasks => [task]))
+
+puts task.completed?
+#=> true
+
+```
+
 ## Install
 
 #### Clone the app

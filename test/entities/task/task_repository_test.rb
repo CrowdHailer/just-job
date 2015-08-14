@@ -3,7 +3,7 @@ require_relative '../../../domain/entities/task'
 require_relative '../../../domain/entities/task/repository'
 
 class Task
-  class RespositoryTest < JustJobTest
+  class RepositoryTest < JustJobTest
     def test_returns_empty_list_when_no_tasks
       assert_empty Repository.for_todo_list "no list"
     end
