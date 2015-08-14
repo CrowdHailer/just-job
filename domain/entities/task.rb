@@ -6,7 +6,8 @@ class Task
     @due_date = due_date
   end
 
-  attr_reader :instruction, :due_date, :todo_list
+  attr_reader :todo_list
+  attr_accessor :due_date, :instruction
   def completed?
     @completed
   end

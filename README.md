@@ -64,6 +64,8 @@ At this point our task item is just able to hold the `todo_list` as a string and
 **Step 1: Failing interactor test**
 Write a test for the edit_task interactor
 
+**Step 2: create an EditTask interactor**
+Create an edit task interactor and update the task entity
 
 ## Install
 
