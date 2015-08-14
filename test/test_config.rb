@@ -14,4 +14,7 @@ Dir[File.expand_path('../support/**/*.rb', __FILE__)].each { |file| require file
 
 class JustJobTest < Minitest::Test
   # Generic test case for the Just Job project
+  def setup
+    Task::Repository.clear
+  end
 end

@@ -5,7 +5,10 @@ require_relative '../../domain/interactors/get_todo_list'
 
 class GetTodoListTest < JustJobTest
   def test_can_fetch_all_tasks_in_my_todo_list
-    skip
+    my_task = Task.new "my list", "take the high road"
+    Task::Repository.add my_task
+    your_task = Task.new "your list", "take the low road"
+    Task::Repository.add your_task
     request = OpenStruct.new :name => "my list"
     response = GetTodoList.new request
     todo_list = response.result
@@ -13,11 +16,4 @@ class GetTodoListTest < JustJobTest
     refute_includes todo_list, your_task
   end
 
-  def my_task
-    Task.new "my list", "take the high road"
-  end
-
-  def your_task
-    Task.new "your list", "take the low road"
-  end
 end
