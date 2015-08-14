@@ -81,7 +81,7 @@ At this point our app is able to create, edit and complete tasks but not yet del
 
 ###### Requirements
 - fetch a todo list by its name
-- check a task has been deleted
+- check a task has been removed
 
 ###### Steps
 1. Failing interactor test  
@@ -92,6 +92,9 @@ The TodoLists will be identified by their name so that is what we use to fetch t
 At this point we need to have a record of all the tasks in our system.
 For this we will create a [repository](http://insights.workshop14.io/2015/08/09/untangle-your-domain-model-from-the-database.html), at this stage it only needs to be in memory
 A repository always models a collection of entities therefore we do not need to have a separate respositories directory.
+
+3. Failing remove task interactor test
+we should be able to remove a task from the repository
 
 ## Install
 
