@@ -27,6 +27,22 @@ However I have never worked in a language with proper interface objects so if I 
 **Requirements**
 - a task has an instruction(the content), a due_date and a completed status
 - we need to be able to create a todo list
+- a todo list has a name
+
+**Step 1: Failing interaction test**
+
+```rb
+class CreateTodoListTest < JustJobTest
+  def test_can_create_a_todo_list
+    request = OpenStruct.new :instruction => "my list"
+    response = CreateTodoList.new request
+    assert_kind_of TodoList, response.result
+  end
+end
+```
+
+The interaction(`CreateTodoList`) takes a generic request object with all the data needed to complete the interaction.
+It returns a generic response object(instance of `CreateTodoList`) with some result, here the result is a `TodoList`
 
 ## Install
 
