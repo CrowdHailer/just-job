@@ -1,5 +1,7 @@
-module Task::Repository
-  def self.for_todo_list(name)
-
+class Task
+  module Repository
+    def self.for_todo_list(name)
+      []
+    end
   end
 end
