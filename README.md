@@ -52,6 +52,19 @@ Repeat adding interactor tests and writing the code to fix them. See the commit 
 
 At this point our task item is just able to hold the `todo_list` as a string and we have not needed to implement any functionality on the todo_list
 
+### Modifying a task
+
+> It should be possible to complete edit or delete a task
+
+**Requirements**
+- edit instructions and/or due_date
+- complete one or more tasks
+- delete a task
+
+**Step 1: Failing interactor test**
+Write a test for the edit_task interactor
+
+
 ## Install
 
 #### Clone the app
