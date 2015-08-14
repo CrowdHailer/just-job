@@ -145,6 +145,24 @@ puts task.completed?
 
 ```
 
+## Version 2 - Securing the application
+Our application so far responds to all the happy paths that we have required.
+However there is no validation within the system, tasks can have no contents, anything can be added to a todo list.
+
+*NB this is not user related security, we have no concept of a user, we are just ensuring we handle interactions off the happy path*
+
+Some of the things we might like
+- validating task instruction is not nil, hash a certain length and contains only allowed characters
+- a task can be added only to an existing todo list and not be given any string
+
+###### Steps
+1. Creating an instruction object.
+Strings can be any length and contain any character, as our instruction is not of any length and cannot contain all characters it is best represented by a something other than a string.
+See a discussion on [value objects](http://insights.workshop14.io/2015/07/15/value-objects-in-ruby.html).
+
+Value objects are used throughout the application and so we will put them in there own directory
+
+
 ## Install
 
 #### Clone the app
