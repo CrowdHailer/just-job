@@ -50,6 +50,8 @@ To make the above test pass we have to create minimal `CreateTodoList` and `Todo
 **Step 3: complete requirements**
 Repeat adding interactor tests and writing the code to fix them. See the commit log for details
 
+At this point our task item is just able to hold the `todo_list` as a string and we have not needed to implement any functionality on the todo_list
+
 ## Install
 
 #### Clone the app
