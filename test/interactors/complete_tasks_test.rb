@@ -12,11 +12,11 @@ class CompleteTasksTest < JustJobTest
   end
 
   def task1
-    Task.new "new list", "fry eggs"
+    Task.new "new list", Instruction.new("fry eggs")
   end
 
   def task2
-    Task.new "new list", "fry bacon"
+    Task.new "new list", Instruction.new("fry bacon")
   end
 
 end

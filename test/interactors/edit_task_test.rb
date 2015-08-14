@@ -5,9 +5,10 @@ require_relative '../../domain/interactors/edit_task'
 
 class EditTaskTest < JustJobTest
   def test_can_edit_task_instruction
-    request = OpenStruct.new task: old_task, :instruction => "eat pie"
+    instruction =  Instruction.new "eat pie"
+    request = OpenStruct.new task: old_task, :instruction => instruction
     response = EditTask.new request
-    assert_equal "eat pie", response.result.instruction
+    assert_equal instruction, response.result.instruction
   end
 
   def test_can_edit_task_due_date
@@ -17,7 +18,7 @@ class EditTaskTest < JustJobTest
   end
 
   def old_task
-    request = OpenStruct.new :instruction => "Do laundry", :todo_list => "my list"
+    request = OpenStruct.new :instruction => "Do laundry", :todo_list => Instruction.new("my list")
     response = CreateTask.new request
     response.result
   end

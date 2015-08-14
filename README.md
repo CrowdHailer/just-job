@@ -164,6 +164,10 @@ Value objects are used throughout the application and so we will put them in the
 Our instruction object is only valid for strings more than 1 character and less than 256 characters long.
 It also validates the string does not contain any angled brackets (`<>`)
 
+2. Update tests to use instruction value
+use the instruction object when instantiating interactors.
+We will not code defensively to ensure interactors are given the right value objects.
+Later we will introduce form objects as boundary control between the app and delivery mechanism 
 
 ## Install
 
