@@ -161,6 +161,8 @@ Strings can be any length and contain any character, as our instruction is not o
 See a discussion on [value objects](http://insights.workshop14.io/2015/07/15/value-objects-in-ruby.html).
 
 Value objects are used throughout the application and so we will put them in there own directory
+Our instruction object is only valid for strings more than 1 character and less than 256 characters long.
+It also validates the string does not contain any angled brackets (`<>`)
 
 
 ## Install
