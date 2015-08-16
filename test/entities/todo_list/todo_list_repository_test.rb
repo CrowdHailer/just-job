@@ -27,5 +27,14 @@ class TodoList
       assert_equal todo_list, Repository[:default_name]
     end
 
+    def test_cannot_add_a_todo_list_with_the_same_name
+      todo_list = TodoList.new :default_name
+      Repository.add todo_list
+      assert_raises Repository::NameRegistered do
+        todo_list = TodoList.new :default_name
+        Repository.add todo_list
+      end
+    end
+
   end
 end

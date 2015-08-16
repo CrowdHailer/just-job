@@ -2,6 +2,7 @@ require_relative '../../values/todo_list_name'
 
 class TodoList
   module Repository
+    NameRegistered = Class.new(ArgumentError)
     @contents = []
 
     def self.contents
@@ -9,6 +10,7 @@ class TodoList
     end
 
     def self.add(todo_list)
+      raise NameRegistered if self[todo_list.name]
       contents << todo_list
     end
 
