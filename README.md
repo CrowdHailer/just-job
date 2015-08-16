@@ -177,6 +177,12 @@ At this point the todo_lists driving all developments from the interactor level 
 4. Todo list names must be unique in the repository.
 throw an error if adding the same name twice.
 
+Our application now checks for many more types of errors.
+task instructions are limited
+todo list names are limited
+todo lists cannot be duplicated in the repository
+
+However for most of those constraints it is possible to circumnavigate them by providing incorrect input. ie just passing a string rather than a todo list name.
 
 ## Install
 
