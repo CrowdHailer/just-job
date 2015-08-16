@@ -172,7 +172,10 @@ Later we will introduce form objects as boundary control between the app and del
 3. Create a repository of todo lists
 This is necessary as to pass a todolist to create a task it must be possible to have an empty todo.
 
+At this point the todo_lists driving all developments from the interactor level down seams heavy handed. Feature development is best driven from this level but certain features must be present on the domain objects and you do not always need a usecase to see this. So carrying on at the unit test level
 
+4. Todo list names must be unique in the repository.
+throw an error if adding the same name twice.
 
 
 ## Install
