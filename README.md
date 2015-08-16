@@ -196,6 +196,9 @@ this is the terminology used by uncle bob in clean architecture
 This interface will eventually be used by the delivery mechanism, likely but not definetly the web.
 To show that the interface is reusable we will also write a simple ruby implementation, which makes using the application from within an irb session easier.
 
+###### Steps
+1. Create todo list interface
+Any request object to this interactor must have a name method that returns an instance of `TodoListName`
 
 ## Install
 
