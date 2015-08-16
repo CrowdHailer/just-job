@@ -12,6 +12,10 @@ class TodoList
       contents << todo_list
     end
 
+    def self.[](name)
+      contents.first{ |todo_list| todo_list.name = name }
+    end
+
     def self.all
       contents
     end

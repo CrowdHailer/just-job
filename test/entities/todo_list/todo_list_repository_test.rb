@@ -21,5 +21,11 @@ class TodoList
       assert Repository.empty?
     end
 
+    def test_can_fetch_todo_list_by_name
+      todo_list = TodoList.new :default_name
+      Repository.add todo_list
+      assert_equal todo_list, Repository[:default_name]
+    end
+
   end
 end
