@@ -1,3 +1,5 @@
+require_relative '../../values/todo_list_name'
+
 class TodoList
   module Repository
     @contents = []

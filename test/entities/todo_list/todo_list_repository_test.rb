@@ -9,13 +9,13 @@ class TodoList
     end
 
     def test_can_add_a_todo_list
-      todo_list = TodoList.new
+      todo_list = TodoList.new :default_name
       Repository.add todo_list
       refute Repository.empty?
     end
 
     def test_can_clear_repository
-      todo_list = TodoList.new
+      todo_list = TodoList.new :default_name
       Repository.add todo_list
       Repository.clear
       assert Repository.empty?

@@ -6,6 +6,6 @@ class CreateTodoList
   end
 
   def result
-    TodoList.new
+    TodoList.new :default_name
   end
 end
