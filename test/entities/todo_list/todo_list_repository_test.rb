@@ -13,5 +13,13 @@ class TodoList
       Repository.add todo_list
       refute Repository.empty?
     end
+
+    def test_can_clear_repository
+      todo_list = TodoList.new
+      Repository.add todo_list
+      Repository.clear
+      assert Repository.empty?
+    end
+
   end
 end
