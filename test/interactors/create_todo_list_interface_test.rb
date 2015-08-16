@@ -4,7 +4,7 @@ class CreateTodoList
       request_class = Class.new do |x|
         prepend RequestInterface
       end
-      assert_raises Interface::MissingMethod do
+      err = assert_raises Interface::MissingMethod do
         request_class.new.name
       end
     end
