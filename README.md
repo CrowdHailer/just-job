@@ -91,7 +91,7 @@ The TodoLists will be identified by their name so that is what we use to fetch t
 2. Create Tasks Repository
 At this point we need to have a record of all the tasks in our system.
 For this we will create a [repository](http://insights.workshop14.io/2015/08/09/untangle-your-domain-model-from-the-database.html), at this stage it only needs to be in memory
-A repository always models a collection of entities therefore we do not need to have a separate respositories directory.
+A repository always models a collection of entities therefore we do not need to have a separate repositories directory.
 
 3. Failing remove task interactor test
 we should be able to remove a task from the repository
@@ -167,7 +167,11 @@ It also validates the string does not contain any angled brackets (`<>`)
 2. Update tests to use instruction value
 use the instruction object when instantiating interactors.
 We will not code defensively to ensure interactors are given the right value objects.
-Later we will introduce form objects as boundary control between the app and delivery mechanism 
+Later we will introduce form objects as boundary control between the app and delivery mechanism
+
+3. Create a repository of todo lists
+This is necessary as to pass a todolist to create a task it must be possible to have an empty todo.
+
 
 ## Install
 

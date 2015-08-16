@@ -16,5 +16,6 @@ class JustJobTest < Minitest::Test
   # Generic test case for the Just Job project
   def setup
     Task::Repository.clear
+    TodoList::Repository.clear
   end
 end
