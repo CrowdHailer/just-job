@@ -184,6 +184,19 @@ todo lists cannot be duplicated in the repository
 
 However for most of those constraints it is possible to circumnavigate them by providing incorrect input. ie just passing a string rather than a todo list name.
 
+## Version 3 - Providing an interface
+As a ruby developer I do not want to be type checking all through my system.
+To deal with unsafe input I will create an object that is responsible for coercing and validating input for a given interactor.
+The interactor will just check that it is given one of these objects.
+I have written about these objects [calling them form objects](http://insights.workshop14.io/2015/07/23/application-border-control-with-ruby-form-objects.html).
+This is because the often validate form input but they are not limited to forms.
+**In this iteration I will be calling these form objects request objects**
+this is the terminology used by uncle bob in clean architecture
+
+This interface will eventually be used by the delivery mechanism, likely but not definetly the web.
+To show that the interface is reusable we will also write a simple ruby implementation, which makes using the application from within an irb session easier.
+
+
 ## Install
 
 #### Clone the app
