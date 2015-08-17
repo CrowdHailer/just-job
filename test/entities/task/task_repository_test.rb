@@ -14,6 +14,21 @@ class Task
       refute Repository.empty?
     end
 
+    def test_added_task_gets_given_id
+      task = Task.new "my list", "take the high road"
+      Repository.add task
+      assert task.id, 'should have id'
+    end
+
+    def test_tasks_given_sequential_ids
+      task1 = Task.new "my list", "take the high road"
+      Repository.add task1
+      task2 = Task.new "my list", "take the high road"
+      Repository.add task2
+      assert_operator task1.id, :<, task2.id
+
+    end
+
     def test_can_remove_a_task
       task = Task.new "my list", "take the high road"
       Repository.add task

@@ -1,5 +1,6 @@
 class Task
   module Repository
+    @id = 0
     @contents = []
     def self.for_todo_list(name)
       contents.select { |task| task.todo_list == name }
@@ -10,6 +11,7 @@ class Task
     end
 
     def self.add(task)
+      task.id = @id += 1
       contents << task
     end
 

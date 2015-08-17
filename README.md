@@ -237,6 +237,7 @@ They should be set up using other interactors.
 We will switchover to using interactors as they become available.
 
 6. Add id to task so that we do not need to pass task objects to the delivery mechanism
+repository needs to assign id when adding task
 
 ## Install
 
