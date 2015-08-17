@@ -1,6 +1,6 @@
-require_relative '../../interface'
 class CreateTodoList
   module RequestInterface
+    extend Interface
     def name
       if defined?(super)
         value = super

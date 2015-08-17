@@ -200,6 +200,27 @@ To show that the interface is reusable we will also write a simple ruby implemen
 1. Create todo list interface
 Any request object to this interactor must have a name method that returns an instance of `TodoListName`
 
+2. Test the interactor accepts only request with the interface.
+At this point we introduce the REPL(irb) as a delivery mechanism.
+With request objects growing in complexity it gets more cumbersome to generate them in irb.
+For this reason I create request implementations designed for use in the repl.
+They also make setup for tests much easier
+```rb
+request = OpenStruct.new(:name => TodoListName.new("My list"))
+# has been replaced with
+request = REPL::CreateTodoListRequest.new "My list"
+```
+
+This change is also necessary as we have updated the `CreateTodoList` interactor to only accept the correct interface
+```rb
+class CreateTodoList
+  def initialize(request)
+    RequestInterface.required_on! request
+  end
+  # rest
+end
+```
+
 ## Install
 
 #### Clone the app

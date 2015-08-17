@@ -3,7 +3,7 @@ require_relative './create_todo_list/request_interface'
 
 class CreateTodoList
   def initialize(request)
-
+    RequestInterface.required_on! request
   end
 
   def result
