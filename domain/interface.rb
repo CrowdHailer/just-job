@@ -8,7 +8,7 @@ module Interface
   end
 
   def required_on!(target)
-    raise NotImplemented unless self.implemented_on? target
+    raise NotImplemented, "interface not implemented on #{target}" unless self.implemented_on? target
   end
 
 end

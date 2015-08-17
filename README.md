@@ -211,10 +211,6 @@ request = OpenStruct.new(:name => TodoListName.new("My list"))
 request = REPL::CreateTodoListRequest.new "My list"
 ```
 
-3. Implement the get todo list interface
-Also create a REPL implementation, and test that interactor accepts only interface
-
-This change is also necessary as we have updated the `CreateTodoList` interactor to only accept the correct interface
 ```rb
 class CreateTodoList
   def initialize(request)
@@ -223,6 +219,11 @@ class CreateTodoList
   # rest
 end
 ```
+
+3. Implement the get todo list interface
+Also create a REPL implementation, and test that interactor accepts only interface
+
+This change is also necessary as we have updated the `CreateTodoList` interactor to only accept the correct interface
 
 ## Install
 
