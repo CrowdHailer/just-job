@@ -225,6 +225,12 @@ Also create a REPL implementation, and test that interactor accepts only interfa
 
 This change is also necessary as we have updated the `CreateTodoList` interactor to only accept the correct interface
 
+4. Upgrade the create task interactor
+When adding the create task interface we want a new task to be given a todolist as an identifier and not just any value.
+A todolist cannot be passed into the request object, the request object must be initialized with only primitives.
+Therefore this request object will have to use the `GetTodoList` interactor.
+The request object implementation is outside the domain and so must only query the domain through interactors.
+
 ## Install
 
 #### Clone the app

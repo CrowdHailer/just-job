@@ -1,4 +1,5 @@
 require_relative '../entities/task'
+require_relative './create_task/request_interface'
 
 class CreateTask
   def initialize(request)
