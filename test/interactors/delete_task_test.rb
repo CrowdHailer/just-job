@@ -10,7 +10,6 @@ class DeleteTaskTest < JustJobTest
     request = REPL::CreateTaskRequest.new "my list", "Do laundrys"
     response = CreateTask.new request
     task = response.result
-    Task::Repository.add task
     request =  OpenStruct.new :task => task
     DeleteTask.new request
     assert Task::Repository.empty?

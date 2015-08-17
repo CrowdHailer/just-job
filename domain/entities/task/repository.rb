@@ -1,5 +1,6 @@
 class Task
   module Repository
+    AlreadyAdded = Class.new(RuntimeError)
     @id = 0
     @contents = []
     def self.for_todo_list(name)
@@ -10,7 +11,12 @@ class Task
       @contents
     end
 
+    def self.[](id)
+      contents.first { |t| t.id == id }
+    end
+
     def self.add(task)
+      raise AlreadyAdded if task.id
       task.id = @id += 1
       contents << task
     end

@@ -20,13 +20,26 @@ class Task
       assert task.id, 'should have id'
     end
 
+    def test_cant_add_a_task_twice
+      task = Task.new "my list", "take the high road"
+      Repository.add task
+      assert_raises Repository::AlreadyAdded do
+        Repository.add task
+      end
+    end
+
     def test_tasks_given_sequential_ids
       task1 = Task.new "my list", "take the high road"
       Repository.add task1
       task2 = Task.new "my list", "take the high road"
       Repository.add task2
       assert_operator task1.id, :<, task2.id
+    end
 
+    def test_should_be_able_to_retireve_task_by_id
+      task = Task.new "my list", "take the high road"
+      Repository.add task
+      assert_equal task, Repository[task.id]
     end
 
     def test_can_remove_a_task
