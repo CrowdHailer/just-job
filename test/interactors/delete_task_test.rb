@@ -6,8 +6,8 @@ require_relative '../../domain/interactors/delete_task'
 class DeleteTaskTest < JustJobTest
 
   def test_task_can_be_remove_from_todo_list
-    skip
-    request = OpenStruct.new :instruction => "Do laundry", :todo_list => Instruction.new("my list")
+    create_my_list
+    request = REPL::CreateTaskRequest.new "my list", "Do laundrys"
     response = CreateTask.new request
     task = response.result
     Task::Repository.add task

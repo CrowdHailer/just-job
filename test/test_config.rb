@@ -18,4 +18,9 @@ class JustJobTest < Minitest::Test
     Task::Repository.clear
     TodoList::Repository.clear
   end
+
+  def create_my_list
+    request = REPL::CreateTodoListRequest.new "my list"
+    response = CreateTodoList.new request
+  end
 end

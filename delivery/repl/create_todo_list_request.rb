@@ -3,9 +3,9 @@ module REPL
     prepend CreateTodoList::RequestInterface
 
     def initialize(name)
-      # Not this will fail when called as is not a TodoListName object
-      # However will fail with helpful interface error
-      name
+      @name = TodoListName.new name
     end
+
+    attr_reader :name
   end
 end

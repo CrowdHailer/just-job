@@ -5,17 +5,25 @@ require_relative '../../domain/interactors/create_task'
 require_relative '../../delivery/repl/create_task_request'
 
 class CreateTaskTest < JustJobTest
+  def setup
+    super
+    create_my_list
+  end
+
   def test_can_create_a_task
     request = REPL::CreateTaskRequest.new "my list", "Do something"
     response = CreateTask.new request
     assert_kind_of Task, response.result
   end
 
-  def test_created_task_is_added_to_repository
-    skip
-    request = OpenStruct.new :instruction => Instruction.new("Do something"), :todo_list => "my list"
+  def test_created_task_is_added_to_todo_list
+    request = REPL::CreateTaskRequest.new "my list", "Do laundry"
     response = CreateTask.new request
-    refute Task::Repository.empty?
+
+    request = REPL::GetTodoListRequest.new "my list"
+    response = GetTodoList.new request
+    tasks = Task::Repository.for_todo_list response.result
+    refute tasks.empty?
   end
 
   def test_raises_error_if_not_given_request_with_correct_interface

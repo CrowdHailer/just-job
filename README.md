@@ -231,6 +231,11 @@ A todolist cannot be passed into the request object, the request object must be 
 Therefore this request object will have to use the `GetTodoList` interactor.
 The request object implementation is outside the domain and so must only query the domain through interactors.
 
+5. Implement the remaining interfaces
+The interactor tests have become the integration tests.
+They should be set up using other interactors.
+We will switchover to using interactors as they become available.
+
 ## Install
 
 #### Clone the app

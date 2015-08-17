@@ -3,14 +3,16 @@ module REPL
     prepend CreateTask::RequestInterface
 
     def initialize(todo_list_name, instruction)
+      @todo_list = GetTodoList.new(GetTodoListRequest.new(todo_list_name)).result
+      @instruction = Instruction.new instruction
     end
 
     def todo_list
-      TodoList.new :default_list
+      @todo_list
     end
 
     def instruction
-      Instruction.new :default_instruction
+      @instruction
     end
 
   end
