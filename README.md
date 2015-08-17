@@ -236,6 +236,8 @@ The interactor tests have become the integration tests.
 They should be set up using other interactors.
 We will switchover to using interactors as they become available.
 
+6. Add id to task so that we do not need to pass task objects to the delivery mechanism
+
 ## Install
 
 #### Clone the app

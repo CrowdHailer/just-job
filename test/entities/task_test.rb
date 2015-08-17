@@ -13,6 +13,16 @@ class TaskTest < JustJobTest
     refute new_task.completed?
   end
 
+  def test_task_is_initialized_without_an_id
+    assert_nil new_task.id
+  end
+
+  def test_can_set_an_id
+    task = new_task
+    task.id = 14
+    assert_equal 14, task.id
+  end
+
   def test_task_can_get_completed
     task = new_task.complete
     assert task.completed?
