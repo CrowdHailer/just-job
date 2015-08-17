@@ -239,6 +239,8 @@ We will switchover to using interactors as they become available.
 6. Add id to task so that we do not need to pass task objects to the delivery mechanism
 repository needs to assign id when adding task
 
+7. delete task interactor only needs to take an id so this request is duck typed and not interface checked for comparison.
+
 ## Install
 
 #### Clone the app

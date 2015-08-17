@@ -2,6 +2,7 @@ require_relative '../test_config'
 require 'ostruct'
 
 require_relative '../../domain/interactors/delete_task'
+require_relative '../../delivery/repl/delete_task_request'
 
 class DeleteTaskTest < JustJobTest
 
@@ -10,7 +11,7 @@ class DeleteTaskTest < JustJobTest
     request = REPL::CreateTaskRequest.new "my list", "Do laundrys"
     response = CreateTask.new request
     task = response.result
-    request =  OpenStruct.new :task => task
+    request =  REPL::DeleteTaskRequest.new task.id
     DeleteTask.new request
     assert Task::Repository.empty?
   end
