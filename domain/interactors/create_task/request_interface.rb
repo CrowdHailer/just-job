@@ -7,7 +7,7 @@ class CreateTask
         raise Interface::InvalidReturn unless value.is_a? Instruction
         value
       else
-        raise Interface::MissingMethod, "method 'name' is not implemented on #{self}"
+        raise Interface::MissingMethod, "method '#{__method__}' is not implemented on #{self}"
       end
     end
 
@@ -17,7 +17,7 @@ class CreateTask
         raise Interface::InvalidReturn unless value.is_a? TodoList
         value
       else
-        raise Interface::MissingMethod, "method 'name' is not implemented on #{self}"
+        raise Interface::MissingMethod, "method '#{__method__}' is not implemented on #{self}"
       end
     end
   end
