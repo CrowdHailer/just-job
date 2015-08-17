@@ -241,6 +241,16 @@ repository needs to assign id when adding task
 
 7. delete task interactor only needs to take an id so this request is duck typed and not interface checked for comparison.
 
+The application at this point has much of the core functionality, even if that is a very limited set of functionality at the moment.
+The interactors have a mechanism of validating and checking input.
+The interfaces are written in a very verbose manner at the moment which is probably a reflection of the fact that it is not a natural thing to do in Ruby.
+We have managed to get this far without deciding on a framework or database implementation, proving that we have been able to treat those as details.
+As an aside the test run very fast but that is just an added bonus and not a core feature off this approach
+
+> Finished tests in 0.008828s, 7815.9549 tests/s, 8382.3284 assertions/s.
+
+The next step is probably to implement a web delivery mechanism plugin and see how easy it is to make use of the interfaces
+
 ## Install
 
 #### Clone the app
