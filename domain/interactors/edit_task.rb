@@ -1,3 +1,5 @@
+require_relative './edit_task/request_interface'
+
 class EditTask
   def initialize(request)
     task = request.task
