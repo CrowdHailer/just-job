@@ -83,7 +83,12 @@ REPL::CreateTask.new "My list", "C"
 REPL::CreateTask.new "no list", "Clean windows"
 "TodoList with name 'no list' not_found"
 # => #<REPL::CreateTask:0x00000000a69cd0>
+```
 
+Get a todo list.
+passed as option as will will extend with pagination
+```rb
+REPL::GetTasks.new todo_list: "My List"
 ```
 
 ## Development
