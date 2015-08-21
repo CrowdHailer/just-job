@@ -1,6 +1,6 @@
 module REPL
   class CreateTaskRequest
-    prepend CreateTask::RequestInterface
+    prepend ::CreateTask::RequestInterface
 
     def initialize(todo_list_name, instruction)
       @instruction = Instruction.new instruction

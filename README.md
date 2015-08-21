@@ -51,20 +51,39 @@ Create a todo list with a todo list name.
 The interaction is show as a message.
 ```rb
 # For valid input
-2.2.1 :001 > REPL::CreateTodoList.new "abc"
-"Created new TodoList 'abc'"
+REPL::CreateTodoList.new "My list"
+"Created new TodoList 'My list'"
 # => #<REPL::CreateTodoList:0x00000001f03470>
 
-
 # For invalid name
-2.2.1 :002 > REPL::CreateTodoList.new "a"
+REPL::CreateTodoList.new "a"
 "Request had invalid name 'a'"
 # => #<REPL::CreateTodoList:0x000000009bf780>
 
 # For taken name
-2.2.1 :002 > REPL::CreateTodoList.new "abc"
-"TodoList name 'abc' already taken"
+REPL::CreateTodoList.new "My list"
+"TodoList name 'My list' already taken"
 # => #<REPL::CreateTodoList:0x000000009c9c30>
+```
+
+Create a task in a todo list.
+Todo lists are identified by name
+```rb
+# Add task to list
+REPL::CreateTask.new "My list", "Clean windows"
+"Task added 'Clean windows'"
+# => #<REPL::CreateTask:0x00000000ac82f8>
+
+# Instruction invalid
+REPL::CreateTask.new "My list", "C"
+"Request had invalid details"
+# => #<REPL::CreateTask:0x00000000aa4b28>
+
+# List not created
+REPL::CreateTask.new "no list", "Clean windows"
+"TodoList with name 'no list' not_found"
+# => #<REPL::CreateTask:0x00000000a69cd0>
+
 ```
 
 ## Development
@@ -311,3 +330,5 @@ But first we will create some REPL actions to use with the domain these would be
 8. create todo list action
 usecases should have an outcome method.
 our create actions have a created outcome for success cases.
+
+9. create task action and remaining actions.
