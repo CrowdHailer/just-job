@@ -93,12 +93,32 @@ REPL::GetTasks.new todo_list: "My list"
 "1: Clean windows"
 "2: Wash dishes"
 # => #<REPL::GetTasks:0x000000014a44c0>
+
 REPL::GetTasks.new todo_list: "M"
 "Request had invalid details"
 # => #<REPL::GetTasks:0x0000000147b6d8>
+
 REPL::GetTasks.new todo_list: "Daves list"
 "TodoList with name 'Daves list' not_found"
 # => #<REPL::GetTasks:0x00000001443940>
+```
+
+Edit a task
+```rb
+# For existing task
+REPL::EditTask.new 1, instruction: "Move boxes"
+Task 1 updated, instruction: 'Move boxes'
+# => #<REPL::EditTask:0x0000000218d330>
+
+# For non existant task
+REPL::EditTask.new 4, instruction: "Move boxes"
+Task with id '4' not_found
+# => #<REPL::EditTask:0x00000002150598>
+
+# For invalid request
+REPL::EditTask.new 4, instruction: "M"
+Request had invalid details
+# => #<REPL::EditTask:0x00000002106498>
 ```
 
 ## Development

@@ -6,6 +6,9 @@ module REPL
       @task = Task::Repository[id]
       @instruction =  instruction ? Instruction.new(instruction) : @task.instruction
       @due_date = due_date
+      @valid = true
+    rescue ArgumentError
+      @valid = false
     end
 
     def task
@@ -18,6 +21,10 @@ module REPL
 
     def due_date
       @due_date
+    end
+
+    def valid?
+      @valid
     end
 
   end

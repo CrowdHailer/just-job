@@ -12,7 +12,7 @@ class Task
     end
 
     def self.[](id)
-      contents.first { |t| t.id == id }
+      contents.find{ |task| task.id == id }
     end
 
     def self.add(task)

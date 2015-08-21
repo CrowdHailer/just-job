@@ -14,7 +14,7 @@ class EditTask
     def task
       if defined?(super)
         value = super
-        raise Interface::InvalidReturn, value.class unless value.is_a? Task
+        raise Interface::InvalidReturn, value.class unless value.is_a? Task or value.nil?
         value
       else
         raise Interface::MissingMethod, "method '#{__method__}' is not implemented on #{self}"
