@@ -10,16 +10,44 @@ I contest that there is no simple switchover between when DDD is overkill and wh
 This project aims to build the most simple application using DDD and show how easy it is to add interesting behaviour.
 
 I will also employ Test Driven Development for this project.
-DDD + TDD = FORCS, FORmalised Common Sense. *pronounced forks*
+I will also add my own acronym **ForCS**.
 
-## Overview
+> DDD + TDD = FORCS, FORmalised Common Sense. *pronounced forks*#
+
+## Features
+
+## Install
+
+#### Clone the app
+
+```
+git clone git@github.com:CrowdHailer/just-job.git
+cd Maenporth
+```
+
+#### Install Ruby Gem Dependencies
+
+```
+bundle install
+```
+
+#### Run tests
+
+```
+bundle exec rake test
+```
+
+## Usage
+
+## Development
+
+###  Overview
 The application will be developed one user case at a time, but we will assume a reasonable specification so can forward plan for some features.
 Our data persistence mechanism is just a detail and descisions about it will be deferred as long as possible.
 The delivery mechanism is also a detail and we will not allow it to pollute the domain model.
 Instead of dependency injection I want to use interface objects as described in "Architecture: the lost years".
 However I have never worked in a language with proper interface objects so if I get it all wrong please let me know.
 
-## Development
 ### Creating a new Task
 
 > It should be possible to add a new task to a todo list
@@ -250,24 +278,3 @@ As an aside the test run very fast but that is just an added bonus and not a cor
 > Finished tests in 0.008828s, 7815.9549 tests/s, 8382.3284 assertions/s.
 
 The next step is probably to implement a web delivery mechanism plugin and see how easy it is to make use of the interfaces
-
-## Install
-
-#### Clone the app
-
-```
-git clone git@github.com:CrowdHailer/just-job.git
-cd Maenporth
-```
-
-#### Install Ruby Gem Dependencies
-
-```
-bundle install
-```
-
-#### Run tests
-
-```
-bundle exec rake test
-```
