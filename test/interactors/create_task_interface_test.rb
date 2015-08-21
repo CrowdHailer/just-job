@@ -38,31 +38,31 @@ class CreateTask
         prepend RequestInterface
       end
       err = assert_raises Interface::MissingMethod do
-        request_class.new.todo_list
+        request_class.new.todo_list_name
       end
     end
 
     def test_raises_error_when_request_todo_list_returns_invalid_type
       request_class = Class.new do
         prepend RequestInterface
-        def todo_list
+        def todo_list_name
           "String"
         end
       end
       err = assert_raises Interface::InvalidReturn do
-        request_class.new.todo_list
+        request_class.new.todo_list_name
       end
     end
 
     def test_returns_value_when_it_is_a_todo_list_todo_list
-      todo_list = TodoList.new "This but also that"
+      todo_list_name = TodoListName.new "This but also that"
       request_class = Class.new do
         prepend RequestInterface
-        define_method :todo_list do
-          todo_list
+        define_method :todo_list_name do
+          todo_list_name
         end
       end
-      assert_equal todo_list, request_class.new.todo_list
+      assert_equal todo_list_name, request_class.new.todo_list_name
     end
   end
 end
