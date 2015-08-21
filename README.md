@@ -121,6 +121,17 @@ Request had invalid details
 # => #<REPL::EditTask:0x00000002106498>
 ```
 
+Delete a Task
+```rb
+REPL::DeleteTask.new 1
+"Task deleted"
+# => #<REPL::DeleteTask:0x00000000dee158>
+REPL::DeleteTask.new 1
+"Task with id '1' not_found"
+# => #<REPL::DeleteTask:0x00000000dcacd0>
+
+```
+
 ## Development
 
 ###  Overview
