@@ -48,10 +48,23 @@ $ irb -r ./boot.rb
 ```
 
 Create a todo list with a todo list name.
-```
+The interaction is show as a message.
+```rb
+# For valid input
 2.2.1 :001 > REPL::CreateTodoList.new "abc"
-Created new TodoList 'abc''
- => #<REPL::CreateTodoList:0x00000001f03470>
+"Created new TodoList 'abc'"
+# => #<REPL::CreateTodoList:0x00000001f03470>
+
+
+# For invalid name
+2.2.1 :002 > REPL::CreateTodoList.new "a"
+"Request had invalid name 'a'"
+# => #<REPL::CreateTodoList:0x000000009bf780>
+
+# For taken name
+2.2.1 :002 > REPL::CreateTodoList.new "abc"
+"TodoList name 'abc' already taken"
+# => #<REPL::CreateTodoList:0x000000009c9c30>
 ```
 
 ## Development

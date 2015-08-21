@@ -28,4 +28,11 @@ class CreateTodoListTest < JustJobTest
     assert_equal :bad_request, response.outcome
   end
 
+  def test_can_returns_name_conflict_when_list_name_taken
+    request = REPL::CreateTodoListRequest.new "My list"
+    CreateTodoList.new request
+    response = CreateTodoList.new request
+    assert_equal :name_conflict, response.outcome
+  end
+
 end

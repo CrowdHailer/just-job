@@ -11,6 +11,8 @@ class CreateTodoList
     else
       @outcome = :bad_request
     end
+    rescue TodoList::Repository::NameRegistered
+      @outcome = :name_conflict
   end
 
   def result
