@@ -135,7 +135,7 @@ Complete task
 ```rb
 REPL::CompleteTasks.new [1, 2]
 'Completed tasks: ["Clean windows"]'
-# => #<REPL::CompleteTasks:0x00000001b6def0> 
+# => #<REPL::CompleteTasks:0x00000001b6def0>
 ```
 
 ## Development
@@ -384,3 +384,5 @@ usecases should have an outcome method.
 our create actions have a created outcome for success cases.
 
 9. create task action and remaining actions.
+
+Creating actions, interactors, requestinterfaces and requests is a significant overhead on small projects like this, at least without any tools/gems
