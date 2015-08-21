@@ -3,8 +3,8 @@ class Task
     AlreadyAdded = Class.new(RuntimeError)
     @id = 0
     @contents = []
-    def self.for_todo_list(name)
-      contents.select { |task| task.todo_list == name }
+    def self.for_todo_list(todo_list)
+      contents.select { |task| task.todo_list == todo_list }
     end
 
     def self.contents
@@ -12,7 +12,7 @@ class Task
     end
 
     def self.[](id)
-      contents.first { |t| t.id == id }
+      contents.find{ |task| task.id == id }
     end
 
     def self.add(task)

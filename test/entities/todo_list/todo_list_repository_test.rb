@@ -27,6 +27,12 @@ class TodoList
       assert_equal todo_list, Repository[:default_name]
     end
 
+    def test_returns_nil_for_no_list
+      todo_list = TodoList.new :default_name
+      Repository.add todo_list
+      assert_equal nil, Repository[:other_name]
+    end
+
     def test_cannot_add_a_todo_list_with_the_same_name
       todo_list = TodoList.new :default_name
       Repository.add todo_list

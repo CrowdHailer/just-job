@@ -10,16 +10,143 @@ I contest that there is no simple switchover between when DDD is overkill and wh
 This project aims to build the most simple application using DDD and show how easy it is to add interesting behaviour.
 
 I will also employ Test Driven Development for this project.
-DDD + TDD = FORCS, FORmalised Common Sense. *pronounced forks*
+I will also add my own acronym **ForCS**.
 
-## Overview
+> DDD + TDD = FORCS, FORmalised Common Sense. *pronounced forks*#
+
+## Features
+
+## Install
+
+#### Clone the app
+
+```
+git clone git@github.com:CrowdHailer/just-job.git
+cd Maenporth
+```
+
+#### Install Ruby Gem Dependencies
+
+```
+bundle install
+```
+
+#### Run tests
+
+```
+bundle exec rake test
+```
+
+## Usage
+
+### Via REPL
+
+Start irb with `boot.rb` required to include the REPL delivery and application domain.
+
+```
+$ irb -r ./boot.rb
+```
+
+Create a todo list with a todo list name.
+The interaction is show as a message.
+```rb
+# For valid input
+REPL::CreateTodoList.new "My list"
+"Created new TodoList 'My list'"
+# => #<REPL::CreateTodoList:0x00000001f03470>
+
+# For invalid name
+REPL::CreateTodoList.new "a"
+"Request had invalid name 'a'"
+# => #<REPL::CreateTodoList:0x000000009bf780>
+
+# For taken name
+REPL::CreateTodoList.new "My list"
+"TodoList name 'My list' already taken"
+# => #<REPL::CreateTodoList:0x000000009c9c30>
+```
+
+Create a task in a todo list.
+Todo lists are identified by name
+```rb
+# Add task to list
+REPL::CreateTask.new "My list", "Clean windows"
+"Task added 'Clean windows'"
+# => #<REPL::CreateTask:0x00000000ac82f8>
+
+# Instruction invalid
+REPL::CreateTask.new "My list", "C"
+"Request had invalid details"
+# => #<REPL::CreateTask:0x00000000aa4b28>
+
+# List not created
+REPL::CreateTask.new "no list", "Clean windows"
+"TodoList with name 'no list' not_found"
+# => #<REPL::CreateTask:0x00000000a69cd0>
+```
+
+Get a todo list.
+passed as option as will will extend with pagination
+```rb
+# For existing todo list
+REPL::GetTasks.new todo_list: "My list"
+"1: Clean windows"
+"2: Wash dishes"
+# => #<REPL::GetTasks:0x000000014a44c0>
+
+REPL::GetTasks.new todo_list: "M"
+"Request had invalid details"
+# => #<REPL::GetTasks:0x0000000147b6d8>
+
+REPL::GetTasks.new todo_list: "Daves list"
+"TodoList with name 'Daves list' not_found"
+# => #<REPL::GetTasks:0x00000001443940>
+```
+
+Edit a task
+```rb
+# For existing task
+REPL::EditTask.new 1, instruction: "Move boxes"
+Task 1 updated, instruction: 'Move boxes'
+# => #<REPL::EditTask:0x0000000218d330>
+
+# For non existant task
+REPL::EditTask.new 4, instruction: "Move boxes"
+Task with id '4' not_found
+# => #<REPL::EditTask:0x00000002150598>
+
+# For invalid request
+REPL::EditTask.new 4, instruction: "M"
+Request had invalid details
+# => #<REPL::EditTask:0x00000002106498>
+```
+
+Delete a Task
+```rb
+REPL::DeleteTask.new 1
+"Task deleted"
+# => #<REPL::DeleteTask:0x00000000dee158>
+REPL::DeleteTask.new 1
+"Task with id '1' not_found"
+# => #<REPL::DeleteTask:0x00000000dcacd0>
+```
+
+Complete task
+```rb
+REPL::CompleteTasks.new [1, 2]
+'Completed tasks: ["Clean windows"]'
+# => #<REPL::CompleteTasks:0x00000001b6def0>
+```
+
+## Development
+
+###  Overview
 The application will be developed one user case at a time, but we will assume a reasonable specification so can forward plan for some features.
 Our data persistence mechanism is just a detail and descisions about it will be deferred as long as possible.
 The delivery mechanism is also a detail and we will not allow it to pollute the domain model.
 Instead of dependency injection I want to use interface objects as described in "Architecture: the lost years".
 However I have never worked in a language with proper interface objects so if I get it all wrong please let me know.
 
-## Development
 ### Creating a new Task
 
 > It should be possible to add a new task to a todo list
@@ -249,25 +376,13 @@ As an aside the test run very fast but that is just an added bonus and not a cor
 
 > Finished tests in 0.008828s, 7815.9549 tests/s, 8382.3284 assertions/s.
 
-The next step is probably to implement a web delivery mechanism plugin and see how easy it is to make use of the interfaces
+The next step is probably to implement a web delivery mechanism plugin and see how easy it is to make use of the interfaces.
+But first we will create some REPL actions to use with the domain these would be the representive of controller action in a web delivery.
 
-## Install
+8. create todo list action
+usecases should have an outcome method.
+our create actions have a created outcome for success cases.
 
-#### Clone the app
+9. create task action and remaining actions.
 
-```
-git clone git@github.com:CrowdHailer/just-job.git
-cd Maenporth
-```
-
-#### Install Ruby Gem Dependencies
-
-```
-bundle install
-```
-
-#### Run tests
-
-```
-bundle exec rake test
-```
+Creating actions, interactors, requestinterfaces and requests is a significant overhead on small projects like this, at least without any tools/gems

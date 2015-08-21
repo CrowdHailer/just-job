@@ -8,4 +8,8 @@ class CompleteTasks
   def result
     @tasks
   end
+
+  def outcome
+    :success
+  end
 end

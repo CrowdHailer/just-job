@@ -15,7 +15,7 @@ class TodoList
     end
 
     def self.[](name)
-      contents.first{ |todo_list| todo_list.name = name }
+      contents.find{ |todo_list| todo_list.name == name }
     end
 
     def self.all
