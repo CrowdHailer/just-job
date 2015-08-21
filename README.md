@@ -129,7 +129,13 @@ REPL::DeleteTask.new 1
 REPL::DeleteTask.new 1
 "Task with id '1' not_found"
 # => #<REPL::DeleteTask:0x00000000dcacd0>
+```
 
+Complete task
+```rb
+REPL::CompleteTasks.new [1, 2]
+'Completed tasks: ["Clean windows"]'
+# => #<REPL::CompleteTasks:0x00000001b6def0> 
 ```
 
 ## Development
