@@ -7,7 +7,7 @@ module REPL
 
       case response.outcome
       when :created
-        puts "Task added '#{response.result.instruction}'"
+        puts "Task added '#{response.result.instruction}' with id: #{response.result.id}"
       when :bad_request
         puts "Request had invalid details"
       when :not_found
