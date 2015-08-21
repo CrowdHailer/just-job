@@ -4,8 +4,13 @@ require_relative './create_todo_list/request_interface'
 class CreateTodoList
   def initialize(request)
     RequestInterface.required_on! request
-    @todo_list = TodoList.new request.name
-    TodoList::Repository.add @todo_list
+    if request.valid?
+      @todo_list = TodoList.new request.name
+      TodoList::Repository.add @todo_list
+      @outcome = :create
+    else
+      @outcome = :bad_request
+    end
   end
 
   def result
@@ -13,7 +18,6 @@ class CreateTodoList
   end
 
   def outcome
-    # Will error otherwise
-    :created
+    @outcome
   end
 end

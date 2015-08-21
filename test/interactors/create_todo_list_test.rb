@@ -17,4 +17,15 @@ class CreateTodoListTest < JustJobTest
     end
   end
 
+  def test_returns_bad_request_if_request_object_is_not_valid
+    request = Class.new do
+      prepend CreateTodoList::RequestInterface
+      def valid?
+        false
+      end
+    end.new
+    response = CreateTodoList.new request
+    assert_equal :bad_request, response.outcome
+  end
+
 end
