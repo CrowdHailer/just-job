@@ -88,7 +88,17 @@ REPL::CreateTask.new "no list", "Clean windows"
 Get a todo list.
 passed as option as will will extend with pagination
 ```rb
-REPL::GetTasks.new todo_list: "My List"
+# For existing todo list
+REPL::GetTasks.new todo_list: "My list"
+"1: Clean windows"
+"2: Wash dishes"
+# => #<REPL::GetTasks:0x000000014a44c0>
+REPL::GetTasks.new todo_list: "M"
+"Request had invalid details"
+# => #<REPL::GetTasks:0x0000000147b6d8>
+REPL::GetTasks.new todo_list: "Daves list"
+"TodoList with name 'Daves list' not_found"
+# => #<REPL::GetTasks:0x00000001443940>
 ```
 
 ## Development
