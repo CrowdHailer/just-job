@@ -1,6 +1,6 @@
 module REPL
   class CreateTodoListRequest
-    prepend CreateTodoList::RequestInterface
+    prepend ::CreateTodoList::RequestInterface
 
     def initialize(name)
       @name = TodoListName.new name

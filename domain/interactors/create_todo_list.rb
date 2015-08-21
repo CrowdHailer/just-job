@@ -11,4 +11,9 @@ class CreateTodoList
   def result
     @todo_list
   end
+
+  def outcome
+    # Will error otherwise
+    :created
+  end
 end

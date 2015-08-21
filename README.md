@@ -39,6 +39,21 @@ bundle exec rake test
 
 ## Usage
 
+### Via REPL
+
+Start irb with `boot.rb` required to include the REPL delivery and application domain.
+
+```
+$ irb -r ./boot.rb
+```
+
+Create a todo list with a todo list name.
+```
+2.2.1 :001 > REPL::CreateTodoList.new "abc"
+Created new TodoList 'abc''
+ => #<REPL::CreateTodoList:0x00000001f03470>
+```
+
 ## Development
 
 ###  Overview
@@ -277,4 +292,9 @@ As an aside the test run very fast but that is just an added bonus and not a cor
 
 > Finished tests in 0.008828s, 7815.9549 tests/s, 8382.3284 assertions/s.
 
-The next step is probably to implement a web delivery mechanism plugin and see how easy it is to make use of the interfaces
+The next step is probably to implement a web delivery mechanism plugin and see how easy it is to make use of the interfaces.
+But first we will create some REPL actions to use with the domain these would be the representive of controller action in a web delivery.
+
+8. create todo list action
+usecases should have an outcome method.
+our create actions have a created outcome for success cases.

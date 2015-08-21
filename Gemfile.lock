@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ansi (1.5.0)
+    awesome_print (1.6.1)
     builder (3.2.2)
     minitest (5.8.0)
     minitest-reporters (1.0.19)
@@ -15,6 +16,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   minitest
   minitest-reporters
 
