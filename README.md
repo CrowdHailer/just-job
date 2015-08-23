@@ -386,3 +386,8 @@ our create actions have a created outcome for success cases.
 9. create task action and remaining actions.
 
 Creating actions, interactors, requestinterfaces and requests is a significant overhead on small projects like this, at least without any tools/gems
+
+### Other examples
+https://github.com/paulrayner/ddd_sample_app_ruby
+https://github.com/emadb/ruby_loves_ddd
+https://github.com/zamith/yaba/blob/master/README.md
